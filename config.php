@@ -18,5 +18,5 @@
     //connection settings
 
     //open connection to mysql db
-    $connection = mysqli_connect($dbserver,$dbusername,$dbpassword,$db) or die("Error E");
+    $connect = mysqli_connect($dbserver,$dbusername,$dbpassword,$db) or die("Error E");
 
