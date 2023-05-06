@@ -3,13 +3,16 @@
     //database connection
 
     //database server
-    $dbserver = '127.0.0.1';
+    $dbserver = 'us-cdbr-east-06.cleardb.net';
+
     //database username
-    $dbusername = 'root';
+    $dbusername = 'b21c1ce0723288';
+
     //database password
-    $dbpassword = '12345';
+    $dbpassword = 'f06f9991';
+
     //database name
-    $db = 'mmort';
+    $db = 'heroku_0557db19b57d2b0';
 
 
     //connection settings
