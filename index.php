@@ -24,6 +24,15 @@
 			    <link href="frontend/design/css/bootstrap.min.css" rel="stylesheet">
 			    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 			    <link href="frontend/design/css/stylesheet.css" rel="stylesheet" type="text/css">
+				    <script src=
+					"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+				    </script>
+
+				    <script>
+					$(document).ready(function() {
+					    $("li:parent").css("background-color", "green");
+					});
+				    </script>
 			</head>
 			
 			<body>
@@ -37,6 +46,34 @@
 					<div>
 						Footer
 					</div>
+					    <h1 style="color:green">
+						GeeksForGeeks
+					    </h1>
+
+					    <h2>
+						jQuery ajax() Method
+					    </h2>
+
+					    <h3 id="h11"></h3>
+
+					    <button>Click</button>
+
+					    <!-- Script to use ajax() method to
+						add text content -->
+					    <script>
+						$(document).ready(function() {
+						    $("button").click(function() {
+							$.ajax({url: "geeks.txt", 
+								success: function(result) {
+							    $("#h11").html(result);
+							}});
+						    });
+						});
+					    </script>
+					
+					
+					
+					
 				</div>
 			</body>
 		</html>
