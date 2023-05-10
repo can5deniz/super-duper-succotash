@@ -1,9 +1,9 @@
 <?php
 // Connect to MySQL
-$servername = "localhost";
-$username = "your_username";
-$password = "your_password";
-$dbname = "your_database";
+$servername = "us-cdbr-east-06.cleardb.net";
+$username = "b21c1ce0723288";
+$password = "f06f9991";
+$dbname = "heroku_0557db19b57d2b0";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
