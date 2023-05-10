@@ -1,83 +1,44 @@
 <?php
-    // Set the default language
-    $language = 'en';
+// Connect to MySQL
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "your_database";
 
-	// require the config file
-	require_once ('system/config.php');
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-	//if $maintance is true
-    if ($maintance == true){ 
-	
-		//echo "The site is currently under maintance"
-        echo "The site is currently under maintance"; 
-		
-	//else if $maintance is false
-    } elseif ($maintance == false) { 
-        ?>
-		<html>
-			<head>
-				<title><?php echo $title.$seperator.$description; ?></title>
-				<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-				<meta charset="utf-8">
-			    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-			    <meta name="viewport" content="width=device-width, initial-scale=1">
-			    <link href="frontend/design/css/bootstrap.min.css" rel="stylesheet">
-			    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-			    <link href="frontend/design/css/stylesheet.css" rel="stylesheet" type="text/css">
-				    <script src=
-					"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-				    </script>
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-				    <script>
-					$(document).ready(function() {
-					    $("li:parent").css("background-color", "green");
-					});
-				    </script>
-			</head>
-			
-			<body>
-				<div id="wrapper">
-					<div>
-						Header
-					</div>
-					<div>
-						Content
-					</div>
-					<div>
-						Footer
-					</div>
-					    <h1 style="color:green">
-						GeeksForGeeks
-					    </h1>
+// Query the database
+$sql = "SELECT column_name FROM your_table";
+$result = $conn->query($sql);
 
-					    <h2>
-						jQuery ajax() Method
-					    </h2>
+if ($result->num_rows > 0) {
+    // Loop through the results
+    while ($row = $result->fetch_assoc()) {
+        // Get the column value
+        $columnValue = $row["column_name"];
 
-					    <h3 id="h11"></h3>
-
-					    <button>Click</button>
-
-					    <!-- Script to use ajax() method to
-						add text content -->
-					    <script>
-						$(document).ready(function() {
-						    $("button").click(function() {
-							$.ajax({url: "geeks.txt", 
-								success: function(result) {
-							    $("#h11").html(result);
-							}});
-						    });
-						});
-					    </script>
-					
-					
-					
-					
-				</div>
-			</body>
-		</html>
-        <?php 
+        // Conditionally execute the function based on the column value
+        if ($columnValue == "desired_value") {
+            yourFunction();
+        } else {
+            // Do something else
+        }
     }
+} else {
+    echo "No results found.";
+}
 
+// Close the database connection
+$conn->close();
+
+// Your custom function
+function yourFunction() {
+    // Function logic goes here
+    echo "Executing yourFunction based on MySQL data.";
+}
 ?>
